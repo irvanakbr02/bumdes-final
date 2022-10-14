@@ -22,7 +22,7 @@ class AdminLaporan extends BaseController
             // 'pager' => $this->laporan->pager
         ];
 
-        return view('/admin/halaman/laporan/laporan', $data);
+        return view('/admin/halaman/laporan/index', $data);
     }
     public function LaporanCreate()
     {

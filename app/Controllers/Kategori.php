@@ -2,77 +2,49 @@
 
 namespace App\Controllers;
 
-use App\Models\BudayaModel;
-use App\Models\KesenianModel;
-use App\Models\KulinerModel;
-use App\Models\WisataModel;
+use App\Models\KategoriModel;
+use App\Models\MenuModel;
 
 class Kategori extends BaseController
 {
-    protected $wisata;
-    protected $kuliner;
-    protected $kesenian;
-    protected $budaya;
+    protected $db, $builder, $model;
     public function __construct()
     {
-        $this->wisata = new WisataModel();
-        $this->kuliner = new KulinerModel();
-        $this->kesenian = new KesenianModel();
-        $this->budaya = new BudayaModel();
+        $this->db      = \Config\Database::connect();
+        $this->builder = $this->db->table('menu');
+        $this->model = new MenuModel();
     }
-
     public function index()
     {
-        // $wisata = $this->wisata->findAll();
-        $data = [
-            'title' => 'Kategori | Website Bumdes',
-            // 'wisata' => $this->wisata->getWisata(),
-            'kuliner' => $this->kuliner->paginate(3, 'kuliner'),
-            'kesenian' => $this->kesenian->paginate(3, 'kesenian'),
-            'budaya' => $this->budaya->paginate(3, 'budaya'),
-            'wisata' => $this->wisata->paginate(3, 'wisata'),
-            'pager' => $this->wisata->pager,
-            'pager' => $this->kuliner->pager,
-            'pager' => $this->budaya->pager,
-            'pager' => $this->kesenian->pager
-        ];
-        return view('/user/kategori/kategori', $data);
+        $data['title'] = 'Menu Kategori';
+
+        // $users = new UserModel();
+        // $data['users'] = $users->findAll();
+
+        $this->builder->select('menu.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
+        $this->builder->join('kategori', 'kategori.kategori_id = menu.id');
+        $query = $this->builder->get();
+
+        // result object
+        $data['menu'] = $query->getResultArray();
+        return view('admin/halaman/menu/index', $data);
     }
 
-    public function detailwisata($slug)
-    {
 
-        $data = [
-            'title' => 'Detail Wisata | Website Bumdes',
-            'wisata' => $this->wisata->getWisata($slug),
-        ];
-        return view('/user/kategori/wisata/detail', $data);
-    }
-    public function detailkuliner($slug)
+    public function detail($slug)
     {
-
         $data = [
-            'title' => 'Detail Kuliner | Website Bumdes',
-            'kuliner' => $this->kuliner->getKuliner($slug),
+            'title' => 'Detail ',
         ];
-        return view('/user/kategori/kuliner/detail', $data);
-    }
-    public function detailkesenian($slug)
-    {
 
-        $data = [
-            'title' => 'Detail Kesenian | Website Bumdes',
-            'kesenian' => $this->kesenian->getKesenian($slug),
-        ];
-        return view('/user/kategori/kesenian/detail', $data);
-    }
-    public function detailbudaya($slug)
-    {
+        $this->builder->select('menu.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
+        $this->builder->join('kategori', 'kategori.kategori_id = menu.id');
+        $this->builder->where('slug', $slug);
+        $query = $this->builder->get();
 
-        $data = [
-            'title' => 'Detail Budaya | Website Bumdes',
-            'budaya' => $this->budaya->getBudaya($slug),
-        ];
-        return view('/user/kategori/budaya/detail', $data);
+        // result object
+        $data['menu'] = $query->getRowArray();
+
+        return view('/admin/halaman/menu/detail', $data);
     }
 }

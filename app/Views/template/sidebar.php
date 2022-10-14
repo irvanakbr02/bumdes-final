@@ -1,15 +1,15 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+    <!-- <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
         <a class="sidebar-brand brand-logo" href="index.html"><img src="<?= base_url(); ?>/images/logo.svg" alt="logo" /></a>
         <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="<?= base_url(); ?>/images/logo-mini.svg" alt="logo" /></a>
-    </div>
+    </div> -->
     <ul class="nav">
 
         <li class="nav-item nav-category">
             <span class="nav-link">Menu</span>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="<?= base_url('/'); ?>">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>
@@ -41,15 +41,16 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Wisata</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/kategori'); ?>">Lihat Data</a></li>
+                    <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Wisata</a></li>
                     <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Kesenian</a></li>
                     <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Kuliner</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Kebudayaan</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Kebudayaan</a></li> -->
                 </ul>
             </div>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="<?= base_url('/admin/berita'); ?>">
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
@@ -57,7 +58,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="<?= base_url('/admin/laporan'); ?>">
                 <span class="menu-icon">
                     <i class="mdi mdi-table-large"></i>
                 </span>
@@ -65,7 +66,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="<?= base_url('/admin/pesan'); ?>">
                 <span class="menu-icon">
                     <i class="mdi mdi-chart-bar"></i>
                 </span>
@@ -73,7 +74,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="<?= base_url('/logout'); ?>">
                 <span class="menu-icon">
                     <i class="mdi mdi-contacts"></i>
                 </span>

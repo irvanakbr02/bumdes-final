@@ -8,7 +8,7 @@ class BeritaModel extends Model
 {
     protected $table = 'berita';
     protected $useTimestamps = true;
-    protected $allowedFields = ['judul', 'slug', 'penulis', 'deskripsi', 'foto', 'source'];
+    protected $allowedFields = ['judul', 'slug', 'penulis', 'deskripsi', 'foto', 'source', 'created_at'];
 
     public function getBerita($slug = false)
     {

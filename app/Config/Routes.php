@@ -37,6 +37,27 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/admin/pesan', 'Pesan::index');
+$routes->get('/pesan', 'Pesan::pesan');
+$routes->post('/pesan/save', 'Pesan::save');
+//laporan
+$routes->get('/admin/laporan', 'AdminLaporan::laporan');
+$routes->get('/admin/laporan/edit/(:segment)', 'AdminLaporan::LaporanEdit/$1');
+$routes->delete('/admin/laporan/(:num)', 'AdminLaporan::LaporanDelete/$1');
+$routes->get('/admin/laporan/create', 'AdminLaporan::LaporanCreate');
+$routes->post('/admin/laporan/save', 'AdminLaporan::LaporanSave');
+$routes->post('/admin/laporan/update/(:segment)', 'AdminLaporan::LaporanUpdate/$1');
+
+//Berita
+$routes->get('/admin/berita', 'AdminBerita::berita');
+$routes->get('/admin/berita/edit/(:segment)', 'AdminBerita::Edit/$1');
+$routes->delete('/admin/berita/(:num)', 'AdminBerita::Delete/$1');
+$routes->get('/admin/berita/create', 'AdminBerita::Create');
+$routes->post('/admin/berita/save', 'AdminBerita::Save');
+$routes->post('/admin/berita/update/(:segment)', 'AdminBerita::Update/$1');
+
+$routes->get('admin/menu', 'Kategori::index');
+$routes->get('admin/menu/detail/(:any)', 'Kategori::detail/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

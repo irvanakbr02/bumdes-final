@@ -22,7 +22,7 @@ class AdminBerita extends BaseController
         ];
 
 
-        return view('/admin/halaman/berita/berita', $data);
+        return view('/admin/halaman/berita/index', $data);
     }
     public function Create()
     {
