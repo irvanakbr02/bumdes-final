@@ -56,8 +56,13 @@ $routes->get('/admin/berita/create', 'AdminBerita::Create');
 $routes->post('/admin/berita/save', 'AdminBerita::Save');
 $routes->post('/admin/berita/update/(:segment)', 'AdminBerita::Update/$1');
 
-$routes->get('admin/menu', 'Kategori::index');
-$routes->get('admin/menu/detail/(:any)', 'Kategori::detail/$1');
+$routes->get('admin/menu', 'Menu::index');
+$routes->get('/admin/menu/create', 'Menu::create');
+$routes->post('/admin/menu/save', 'Menu::save');
+$routes->get('admin/menu/detail/(:any)', 'Menu::detail/$1');
+
+$routes->get('admin/kategori', 'Kategori::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

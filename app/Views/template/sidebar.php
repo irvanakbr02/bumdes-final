@@ -41,11 +41,11 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/kategori'); ?>">Lihat Data</a></li>
-                    <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Wisata</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Kesenian</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/menu'); ?>">Lihat Data</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/kategori'); ?>">Kategori</a></li>
+                    <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Kesenian</a></li>
                     <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Kuliner</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Kebudayaan</a></li> -->
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Kebudayaan</a></li>  -->
                 </ul>
             </div>
         </li>
