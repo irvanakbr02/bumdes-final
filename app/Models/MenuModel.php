@@ -29,7 +29,7 @@ class MenuModel extends Model
         $builder = $this->db->table('menu');
         // $builder = $this->select(*);
         // $builder = $this->select('menu.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
-        $builder->join('kategori', 'kategori.kategori_id = menu.id');
+        $builder->join('kategori', 'kategori.kategori_id = menu.kategori');
         $query = $builder->get();
         return $query->getResultArray();
     }

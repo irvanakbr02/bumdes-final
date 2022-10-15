@@ -17,6 +17,8 @@ class Menu extends BaseController
     protected $kategori;
     public function __construct()
     {
+        $this->db      = \Config\Database::connect();
+        $this->builder = $this->db->table('menu');
         $this->kategori = new KategoriModel();
         $this->menu = new MenuModel();
     }
@@ -116,7 +118,7 @@ class Menu extends BaseController
         ];
 
         $this->builder->select('menu.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
-        $this->builder->join('kategori', 'kategori.kategori_id = menu.id');
+        $this->builder->join('kategori', 'kategori.kategori_id = menu.kategori');
         $this->builder->where('slug', $slug);
         $query = $this->builder->get();
 

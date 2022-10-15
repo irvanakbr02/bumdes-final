@@ -26,8 +26,9 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Visi Misi</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Struktur</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/visi'); ?>">Visi Misi</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/struktur'); ?>">Struktur</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/periode'); ?>">Periode</a></li>
                 </ul>
             </div>
         </li>
