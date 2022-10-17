@@ -22262,7 +22262,6 @@ button:focus {
 }
 
 textarea {
-  resize: none;
   overflow-x: hidden;
 }
 

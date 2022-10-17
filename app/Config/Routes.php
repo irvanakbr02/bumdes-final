@@ -60,6 +60,9 @@ $routes->get('admin/menu', 'Menu::index');
 $routes->get('/admin/menu/create', 'Menu::create');
 $routes->post('/admin/menu/save', 'Menu::save');
 $routes->get('admin/menu/detail/(:any)', 'Menu::detail/$1');
+$routes->get('/admin/menu/edit/(:segment)', 'Menu::Edit/$1');
+$routes->delete('/admin/menu/(:num)', 'Menu::Delete/$1');
+$routes->post('/admin/menu/update/(:segment)', 'Menu::Update/$1');
 
 $routes->get('admin/kategori', 'Kategori::index');
 
