@@ -11,11 +11,11 @@ class KategoriModel extends Model
     // protected $useTimestamps = true;
     protected $allowedFields = ['kategori_id',  'kategori_nama'];
 
-    public function getPesan($slug = false)
+    public function getId($id = false)
     {
-        if ($slug == false) {
+        if ($id == false) {
             return $this->findAll();
         }
-        return $this->where(['slug' => $slug])->first();
+        return $this->where(['kategori_id' => $id])->first();
     }
 }

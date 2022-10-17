@@ -32,6 +32,15 @@
                         <td><?= $menu['kategori_nama']; ?></td>
                         <td>
                             <a href="<?= '/admin/menu/detail/' . $menu['slug']; ?>" class="btn btn-info">Detail</a>
+                            <a href="/admin/menu/edit/<?= $menu['slug']; ?>" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+
+                            <form action="/admin/menu/<?= $menu['id']; ?>" method="POST" class="d-inline">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="_method" value="DELETE">
+                                <Button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">
+                                    <i class="fa-solid fa-trash-can"></i> Delete
+                                </Button>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>

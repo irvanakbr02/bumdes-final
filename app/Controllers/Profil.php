@@ -2,48 +2,40 @@
 
 namespace App\Controllers;
 
+use App\Models\PeriodeModel;
+use App\Models\VisiModel;
+
 class Profil extends BaseController
 {
-    public function profil()
+    protected $db, $builder, $model;
+    // public function __construct()
+    // {
+    //     $this->db      = \Config\Database::connect();
+    //     $this->builder = $this->db->table('visi');
+    //     $this->model = new MenuModel();
+    // }
+    protected $kategori;
+    public function __construct()
     {
-        $data = [
-            'title' => 'Profil Bumdesa',
-        ];
-        return view('user/profil', $data);
+        $this->db      = \Config\Database::connect();
+        $this->builder = $this->db->table('visi');
+        $this->periode = new PeriodeModel();
+        $this->visi = new VisiModel();
     }
-    public function struktur()
+    public function periode()
     {
         $data = [
-            'title' => 'Struktur Bumdesa',
+            'title' => 'Admin Periode',
+            'periode' => $this->periode->findAll()
         ];
-        return view('user/profil/struktur', $data);
-    }
-    public function pengurus()
-    {
-        $data = [
-            'title' => 'Pengurus Bumdesa',
-        ];
-        return view('user/profil/pengurus', $data);
+        return view('admin/halaman/profil/periode', $data);
     }
     public function visi()
     {
         $data = [
-            'title' => 'Visi Misi Bumdesa',
+            'title' => 'Profil Bumdesa',
+            'visi' => $this->visi->getAll()
         ];
-        return view('user/profil/visi', $data);
-    }
-    public function unit()
-    {
-        $data = [
-            'title' => 'Unit Usaha Bumdesa',
-        ];
-        return view('user/profil/unit', $data);
-    }
-    public function regulasi()
-    {
-        $data = [
-            'title' => 'Regulasi Bumdesa',
-        ];
-        return view('user/profil/regulasi', $data);
+        return view('admin/halaman/profil/visi', $data);
     }
 }

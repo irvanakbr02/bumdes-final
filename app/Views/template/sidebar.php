@@ -26,9 +26,9 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/visi'); ?>">Visi Misi</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/struktur'); ?>">Struktur</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/periode'); ?>">Periode</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/profil/visi'); ?>">Visi Misi</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/profil/anggota'); ?>">Anggota</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/profil/periode'); ?>">Periode</a></li>
                 </ul>
             </div>
         </li>
@@ -43,7 +43,7 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/menu'); ?>">Lihat Data</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/kategori'); ?>">Kategori</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="<?= base_url('/admin/menu/kategori'); ?>">Kategori</a></li>
                     <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Kesenian</a></li>
                     <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Kuliner</a></li>
                     <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Kebudayaan</a></li>  -->

@@ -4,13 +4,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class MenuModel extends Model
+class VisiModel extends Model
 {
-    protected $table = 'menu';
+    protected $table = 'visimisi';
     protected $primaryKey = 'id';
-    protected $foreignKey = 'kategori';
-    protected $useTimestamps = true;
-    protected $allowedFields = ['id', 'nama', 'slug', 'deskripsi', 'foto', 'kategori'];
+    protected $foreignKey = 'periode';
+    protected $allowedFields = ['id', 'periode'];
 
     public function getslug($slug = false)
     {
@@ -26,10 +25,10 @@ class MenuModel extends Model
 
     public function getAll($slug = false)
     {
-        $builder = $this->db->table('menu');
+        $builder = $this->db->table('visimisi');
         // $builder = $this->select(*);
-        // $builder = $this->select('menu.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
-        $builder->join('kategori', 'kategori.kategori_id = menu.kategori');
+        // $builder = $this->select('visimisi.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
+        $builder->join('periode', 'periode.periode_id = visimisi.periode');
         $query = $builder->get();
         return $query->getResultArray();
     }

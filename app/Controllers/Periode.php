@@ -2,72 +2,71 @@
 
 namespace App\Controllers;
 
-use App\Models\KategoriModel;
 use App\Models\MenuModel;
+use App\Models\PeriodeModel;
 
-class Kategori extends BaseController
+class Periode extends BaseController
 {
     protected $db, $builder, $model;
-    protected $kategori;
+    protected $periode;
     public function __construct()
     {
-        $this->kategori = new KategoriModel();
-        $this->menu = new MenuModel();
+        $this->periode = new PeriodeModel();
     }
     public function index()
     {
         $data = [
             'title' => 'Menu Kategori',
-            'kategori' => $this->kategori->findAll()
+            'periode' => $this->periode->findAll()
         ];
-        return view('admin/halaman/kategori/index', $data);
+        return view('admin/halaman/periode/index', $data);
     }
     public function create()
     {
         $data = [
-            'kategori' => $this->kategori->findAll(),
+            'periode' => $this->periode->findAll(),
             'validation' => \Config\Services::validation()
         ];
-        return view('admin/halaman/kategori/create', $data);
+        return view('admin/halaman/periode/create', $data);
     }
     public function save()
     {
         if (!$this->validate([
-            'kategori_nama' => [
+            'periode' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus di isi!'
                 ]
             ]
         ])) {
-            return redirect()->to('admin/menu/kategori/create')->withInput();
+            return redirect()->to('admin/profil/periode/create')->withInput();
         }
-        $this->kategori->save([
-            'kategori_nama' => $this->request->getVar('kategori_nama'),
+        $this->periode->save([
+            'periode' => $this->request->getVar('periode'),
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil ditambah.');
 
-        return redirect()->to('/admin/menu/kategori');
+        return redirect()->to('/admin/profil/periode');
     }
     public function delete($id)
     {
-        $this->kategori->delete($id);
+        $this->periode->delete($id);
         session()->setFlashdata('pesan', 'data berhasil di hapus.');
-        return redirect()->to('/admin/menu/kategori');
+        return redirect()->to('/admin/profil/periode');
     }
     public function edit($id)
     {
         $data = [
-            'title' => 'Form Ubah data menu',
+            'title' => 'Form Ubah data profil',
             'validation' => \Config\Services::validation(),
-            'kategori' => $this->kategori->getId($id),
+            'periode' => $this->periode->getId($id),
         ];
-        return view('admin/halaman/kategori/edit', $data);
+        return view('admin/halaman/periode/edit', $data);
     }
     public function update($id)
     {
         if (!$this->validate([
-            'kategori_nama' => [
+            'periode' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => '{field} harus di isi!'
@@ -75,14 +74,14 @@ class Kategori extends BaseController
             ]
         ])) {
             // $validation = \Config\Services::validation();
-            return redirect()->to('admin/menu/kategori/edit/' . $this->request->getVar('kategori_id'))->withInput();
+            return redirect()->to('admin/profil/periode/edit/' . $this->request->getVar('periode_id'))->withInput();
         }
-        $this->kategori->save([
+        $this->periode->save([
             'id' => $id,
-            'kategori_nama' => $this->request->getVar('kategori_nama'),
+            'periode' => $this->request->getVar('periode'),
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil diubah.');
 
-        return redirect()->to('/admin/menu/kategori');
+        return redirect()->to('/admin/profil/periode');
     }
 }

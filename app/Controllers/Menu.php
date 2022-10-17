@@ -40,6 +40,14 @@ class Menu extends BaseController
         // $data['menu'] = $query->getResultArray();
         return view('admin/halaman/menu/index', $data);
     }
+    public function kategori()
+    {
+        $data = [
+            'title' => 'Menu Kategori',
+            'kategori' => $this->kategori->findAll()
+        ];
+        return view('admin/halaman/kategori/index', $data);
+    }
     public function create()
     {
         $data = [
@@ -147,13 +155,13 @@ class Menu extends BaseController
             'title' => 'Form Ubah data menu',
             'validation' => \Config\Services::validation(),
             'kategori' => $this->kategori->findAll(),
-            'menu' => $this->menu->getAll($slug)
+            'menu' => $this->menu->getslug($slug)
         ];
-        return view('admin/menu/edit', $data);
+        return view('admin/halaman/menu/edit', $data);
     }
     public function update($id)
     {
-        $filemana = $this->menu->getAll($this->request->getVar('slug'));
+        $filemana = $this->menu->getslug($this->request->getVar('slug'));
         if ($filemana['nama'] == $this->request->getVar('nama')) {
             $rule_nama = 'required';
         } else {
@@ -215,6 +223,7 @@ class Menu extends BaseController
             'nama' => $this->request->getVar('nama'),
             'slug' => $slug,
             'deskripsi' => $this->request->getVar('deskripsi'),
+            'kategori' => $this->request->getVar('kategori'),
             'foto' => $namaFoto
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil diubah.');

@@ -63,4 +63,10 @@ class Pesan extends BaseController
 
         return redirect()->to('/pesan');
     }
+    public function delete($id)
+    {
+        $this->model->delete($id);
+        session()->setFlashdata('pesan', 'data berhasil di hapus.');
+        return redirect()->to('/admin/pesan');
+    }
 }
