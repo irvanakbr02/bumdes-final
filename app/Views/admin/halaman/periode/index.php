@@ -20,12 +20,16 @@
         </thead>
         <tbody>
 
-            <?php foreach ($periode as $periode) : ?>
+            <?php
+            $i = 1;
+            foreach ($periode as $periode) : ?>
                 <tr>
-                    <td><?= $periode['periode_id']; ?></td>
+                    <th scope="row"><?= $i++; ?></th>
                     <td><?= $periode['periode']; ?></td>
                     <td>
-                        <form action="/admin/periode/<?= $periode['periode_id']; ?>" method="POST" class="d-inline">
+                        <a href="/admin/profil/periode/edit/<?= $periode['periode_id']; ?>" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+
+                        <form action="/admin/profil/periode/<?= $periode['periode_id']; ?>" method="POST" class="d-inline">
                             <?= csrf_field(); ?>
                             <input type="hidden" name="_method" value="DELETE">
                             <Button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">

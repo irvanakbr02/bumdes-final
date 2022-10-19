@@ -4,12 +4,12 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class VisiModel extends Model
+class AnggotaModel extends Model
 {
-    protected $table = 'visimisi';
+    protected $table = 'anggota';
     protected $primaryKey = 'id';
     protected $foreignKey = 'periode';
-    protected $allowedFields = ['id', 'visi', 'periode'];
+    protected $allowedFields = ['id', 'nama', 'alamat', 'foto', 'periode'];
 
     public function getId($id = false)
     {
@@ -22,13 +22,12 @@ class VisiModel extends Model
     {
         return $this->where(['id' => $id])->first();
     }
-
     public function getAll($id = false)
     {
-        $builder = $this->db->table('visimisi');
+        $builder = $this->db->table('anggota');
         // $builder = $this->select(*);
-        // $builder = $this->select('visimisi.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
-        $builder->join('periode', 'periode.periode_id = visimisi.periode');
+        // $builder = $this->select('anggota.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
+        $builder->join('periode', 'periode.periode_id = anggota.periode');
         $query = $builder->get();
         return $query->getResultArray();
     }

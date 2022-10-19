@@ -73,8 +73,18 @@ $routes->delete('/admin/menu/kategori/(:num)', 'Kategori::Delete/$1');
 $routes->post('/admin/menu/kategori/update/(:segment)', 'Kategori::Update/$1');
 //Admin Profil Visi Misi
 $routes->get('admin/profil/visi', 'Visi::index');
+$routes->get('/admin/profil/visi/create', 'Visi::create');
+$routes->post('/admin/profil/visi/save', 'Visi::save');
+$routes->get('/admin/profil/visi/edit/(:segment)', 'Visi::Edit/$1');
+$routes->delete('/admin/profil/visi/(:num)', 'Visi::Delete/$1');
+$routes->post('/admin/profil/visi/update/(:segment)', 'Visi::Update/$1');
 //Admin Profil Anggota
 $routes->get('admin/profil/anggota', 'Anggota::index');
+$routes->get('/admin/profil/anggota/create', 'Anggota::create');
+$routes->post('/admin/profil/anggota/save', 'Anggota::save');
+$routes->get('/admin/profil/anggota/edit/(:segment)', 'Anggota::Edit/$1');
+$routes->delete('/admin/profil/anggota/(:num)', 'Anggota::Delete/$1');
+$routes->post('/admin/profil/anggota/update/(:segment)', 'Anggota::Update/$1');
 //Admin Profil Periode
 $routes->get('admin/profil/periode', 'Periode::index');
 $routes->get('/admin/profil/periode/create', 'Periode::create');

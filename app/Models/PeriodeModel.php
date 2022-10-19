@@ -11,7 +11,7 @@ class PeriodeModel extends Model
     // protected $useTimestamps = true;
     protected $allowedFields = ['periode_id',  'periode'];
 
-    public function getPeriode($id = false)
+    public function getId($id = false)
     {
         if ($id == false) {
             return $this->findAll();

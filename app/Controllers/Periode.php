@@ -76,10 +76,12 @@ class Periode extends BaseController
             // $validation = \Config\Services::validation();
             return redirect()->to('admin/profil/periode/edit/' . $this->request->getVar('periode_id'))->withInput();
         }
-        $this->periode->save([
-            'id' => $id,
-            'periode' => $this->request->getVar('periode'),
-        ]);
+        // $this->periode->save([
+        //     'id' => $id,
+        //     'periode' => $this->request->getVar('periode'),
+        // ]);
+        $data = $this->request->getPost();
+        $this->periode->update($id, $data);
         session()->setFlashdata('pesan', 'Data Berhasil diubah.');
 
         return redirect()->to('/admin/profil/periode');

@@ -77,10 +77,12 @@ class Kategori extends BaseController
             // $validation = \Config\Services::validation();
             return redirect()->to('admin/menu/kategori/edit/' . $this->request->getVar('kategori_id'))->withInput();
         }
-        $this->kategori->save([
-            'id' => $id,
-            'kategori_nama' => $this->request->getVar('kategori_nama'),
-        ]);
+        // $this->kategori->save([
+        //     'id' => $id,
+        //     'kategori_nama' => $this->request->getVar('kategori_nama'),
+        // ]);
+        $data = $this->request->getPost();
+        $this->periode->update($id, $data);
         session()->setFlashdata('pesan', 'Data Berhasil diubah.');
 
         return redirect()->to('/admin/menu/kategori');
