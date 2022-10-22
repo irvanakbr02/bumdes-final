@@ -16,13 +16,13 @@ class Admin extends BaseController
     {
         $data = [
             'title' => ' Dashboard Admin Website Bumdesa',
-            'laporan' => $this->laporan->paginate(3, 'laporan'),
-            'berita' => $this->berita->paginate(3, 'berita'),
+            // 'laporan' => $this->laporan->paginate(3, 'laporan'),
+            // 'berita' => $this->berita->paginate(3, 'berita'),
 
-            'pager' => $this->laporan->pager,
-            'pager' => $this->berita->pager,
+            // 'pager' => $this->laporan->pager,
+            // 'pager' => $this->berita->pager,
         ];
-        return view('admin/halaman/dashboard', $data);
+        return view('admin/halaman/admin', $data);
     }
     public function login()
     {

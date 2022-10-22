@@ -4,22 +4,20 @@ namespace App\Controllers;
 
 use App\Models\BeritaModel;
 
-
 class Berita extends BaseController
 {
-    protected $modelberita;
+    protected $berita;
     public function __construct()
     {
-
-        $this->modelberita = new BeritaModel();
+        $this->berita = new BeritaModel();
     }
     public function berita()
     {
         $data = [
             'title' => 'Berita | Website Bumdes',
-            // 'berita' => $this->modelberita->getBerita()
-            'berita' => $this->modelberita->paginate(2, 'berita'),
-            'pager' => $this->modelberita->pager
+            // 'berita' => $this->berita->getBerita()
+            'berita' => $this->berita->paginate(2, 'berita'),
+            'pager' => $this->berita->pager
         ];
 
 
@@ -31,7 +29,7 @@ class Berita extends BaseController
 
         $data = [
             'title' => 'Detail Berita | Website Bumdes',
-            'berita' => $this->modelberita->getBerita($slug)
+            'berita' => $this->berita->getBerita($slug)
         ];
 
         return view('/user/berita/detail', $data);

@@ -28,11 +28,10 @@
     <div class="container-scroller">
 
         <!-- partial:partials/_sidebar.html -->
-        <?= $this->include('template/sidebar'); ?>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_navbar.html -->
-            <?= $this->include('template/topbar'); ?>
+            <?= $this->include('template/nav'); ?>
             <!-- partial -->
             <div class="main-panel">
 

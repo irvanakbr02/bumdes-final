@@ -36,12 +36,21 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+// $routes->post('/kontak/form', 'Halaman::kontaksave');
+//berita atau artikel
+$routes->get('/berita', 'Berita::berita');
+$routes->get('/berita/(:any)', 'Berita::detail/$1');
+//laporan
+$routes->get('/laporan', 'Laporan::index');
+$routes->get('/laporan/download/(:any)', 'Laporan::download/$1');
 //Pesan
-$routes->get('/pesan', 'Pesan::pesan');
-$routes->post('/pesan/save', 'Pesan::save');
-//Admin Pesan
-$routes->get('/admin/pesan', 'Pesan::index');
-$routes->delete('/admin/pesan/(:num)', 'Pesan::Delete/$1');
+$routes->get('/kontak', 'Pesan::pesan');
+$routes->post('/kontak/save', 'Pesan::save');
+//Admin 
+$routes->get('/admin/dashboard', 'Admin::index');
+//admin Kontak
+$routes->get('/admin/kontak', 'Pesan::index');
+$routes->delete('/admin/kontak/(:num)', 'Pesan::Delete/$1');
 //Admin laporan
 $routes->get('/admin/laporan', 'AdminLaporan::laporan');
 $routes->get('/admin/laporan/edit/(:segment)', 'AdminLaporan::LaporanEdit/$1');

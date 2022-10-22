@@ -28,7 +28,7 @@
                     <td><?php echo substr($pesan['pesan'], 0, 50) . "..";  ?></td>
                     <td>
 
-                        <form action="/admin/pesan/<?= $pesan['id']; ?>" method="POST" class="d-inline">
+                        <form action="/admin/kontak/<?= $pesan['id']; ?>" method="POST" class="d-inline">
                             <?= csrf_field(); ?>
                             <input type="hidden" name="_method" value="DELETE">
                             <Button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin?');">

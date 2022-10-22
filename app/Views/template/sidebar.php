@@ -67,7 +67,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="<?= base_url('/admin/pesan'); ?>">
+            <a class="nav-link" href="<?= base_url('/admin/kontak'); ?>">
                 <span class="menu-icon">
                     <i class="mdi mdi-chart-bar"></i>
                 </span>

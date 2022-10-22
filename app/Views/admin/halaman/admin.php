@@ -1,4 +1,4 @@
-<?= $this->extend('template/indexuser'); ?>
+<?= $this->extend('template/index'); ?>
 <?= $this->section('page-content'); ?>
 
 <div class="row">

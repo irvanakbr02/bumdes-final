@@ -24,7 +24,7 @@ class Pesan extends BaseController
     }
     public function pesan()
     {
-        return view('halaman/pesan');
+        return view('user/kontak/kontak');
     }
     public function save()
     {
@@ -61,12 +61,12 @@ class Pesan extends BaseController
         ]);
         session()->setFlashdata('pesan', 'Pesan Berhasil Terkirim.');
 
-        return redirect()->to('/pesan');
+        return redirect()->to('/kontak');
     }
     public function delete($id)
     {
         $this->model->delete($id);
         session()->setFlashdata('pesan', 'data berhasil di hapus.');
-        return redirect()->to('/admin/pesan');
+        return redirect()->to('/admin/kontak');
     }
 }
