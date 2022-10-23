@@ -16,12 +16,12 @@ class Laporan extends BaseController
     {
         $data = [
             'title' => 'Laporan | Website Bumdes',
-            'laporan' => $this->laporan->getLaporan()
-            // 'laporan' => $this->laporan->paginate(5, 'laporan'),
-            // 'pager' => $this->laporan->pager
+            // 'laporan' => $this->laporan->getLaporan()
+            'laporan' => $this->laporan->paginate(5, 'laporan'),
+            'pager' => $this->laporan->pager
         ];
 
-        return view('/user/halaman/laporan', $data);
+        return view('/user/laporan/laporan', $data);
     }
 
     public function download($id)

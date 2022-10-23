@@ -36,6 +36,12 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
+$routes->get('/menu/wisata', 'Menu::wisata');
+$routes->get('/menu/wisata/(:any)', 'Menu::detailwisata/$1');
+
+$routes->get('/menu/kuliner', 'Menu::kuliner');
+$routes->get('/menu/kuliner/(:any)', 'Menu::detailwisata/$1');
 // $routes->post('/kontak/form', 'Halaman::kontaksave');
 //berita atau artikel
 $routes->get('/berita', 'Berita::berita');

@@ -16,9 +16,7 @@
             <p class="fs-13 text-muted mb-0">
                 <span class="mr-2">Penulis : <?= $berita['penulis']; ?> </span>
             </p>
-            <p class="fs-13 text-muted mb-0">
-                <span class="mr-2">Tanggal : <?= $berita['created_at']; ?> </span>
-            </p>
+
             <p class="fs-15">
                 <?php echo substr($berita['deskripsi'], 0, 200) . "..";  ?>
 

@@ -14,9 +14,9 @@ class Berita extends BaseController
     public function berita()
     {
         $data = [
-            'title' => 'Berita | Website Bumdes',
+            'title' => 'Berita | Website Bumdesa',
             // 'berita' => $this->berita->getBerita()
-            'berita' => $this->berita->paginate(2, 'berita'),
+            'berita' => $this->berita->paginate(3, 'berita'),
             'pager' => $this->berita->pager
         ];
 
@@ -28,7 +28,7 @@ class Berita extends BaseController
     {
 
         $data = [
-            'title' => 'Detail Berita | Website Bumdes',
+            'title' => 'Detail Berita | Website Bumdesa',
             'berita' => $this->berita->getBerita($slug)
         ];
 
