@@ -37,11 +37,18 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->get('/menu/wisata', 'Menu::wisata');
-$routes->get('/menu/wisata/(:any)', 'Menu::detailwisata/$1');
+$routes->get('/profil/visimisi', 'Visi::visi2017');
+$routes->get('/profil/struktur', 'Anggota::struktur');
+$routes->get('/profil/unitusaha', 'Anggota::unitusaha');
+$routes->get('/profil/regulasi', 'Anggota::regulasi');
+$routes->get('/profil/biodata', 'Anggota::anggota2017');
 
+$routes->get('/menu/detail/(:any)', 'Menu::detail/$1');
+
+$routes->get('/menu/wisata', 'Menu::wisata');
 $routes->get('/menu/kuliner', 'Menu::kuliner');
-$routes->get('/menu/kuliner/(:any)', 'Menu::detailwisata/$1');
+$routes->get('/menu/kesenian', 'Menu::kesenian');
+$routes->get('/menu/budaya', 'Menu::budaya');
 // $routes->post('/kontak/form', 'Halaman::kontaksave');
 //berita atau artikel
 $routes->get('/berita', 'Berita::berita');

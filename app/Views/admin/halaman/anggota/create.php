@@ -29,6 +29,16 @@
 
         </div>
         <div class="form-group row">
+            <label for="jabatan" class="col-sm-2 col-form-label">Jabatan</label>
+            <div class="col-sm-10">
+                <textarea class="form-control <?= ($validation->hasError('jabatan')) ? 'is-invalid' : '' ?>" name="jabatan" id="jabatan" cols="80" rows="50"></textarea>
+                <div class="invalid-feedback">
+                    <?= $validation->getError('jabatan'); ?>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group row">
             <label for="periode" class="col-sm-2 col-form-label">Periode</label>
             <div class="col-sm-10">
                 <select name="periode" class="form-control" id="periode" required>

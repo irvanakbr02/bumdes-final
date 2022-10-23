@@ -25,7 +25,7 @@
                         <td><?= $laporan['judul']; ?></td>
                         <!-- <td><?= $laporan['nama_file']; ?></td> -->
                         <td>
-                            <a href="<?= base_url('laporan/download/' . $laporan['id']); ?>" class="btn btn-default"><i class="fa-solid fa-download"></i> Unduh.</a>
+                            <a href="<?= base_url('laporan/download/' . $laporan['id']); ?>" class="btn btn-info"><i class="fa-solid fa-download"></i> Unduh.</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

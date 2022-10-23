@@ -32,4 +32,12 @@ class VisiModel extends Model
         $query = $builder->get();
         return $query->getResultArray();
     }
+    public function getPeriode2017($slug = false)
+    {
+        $builder = $this->db->table('visimisi');
+        $builder->join('periode', 'periode.periode_id = visimisi.periode');
+        $builder->where('visimisi.periode', 1);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
 }

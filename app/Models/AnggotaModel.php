@@ -9,7 +9,7 @@ class AnggotaModel extends Model
     protected $table = 'anggota';
     protected $primaryKey = 'id';
     protected $foreignKey = 'periode';
-    protected $allowedFields = ['id', 'nama', 'alamat', 'foto', 'periode'];
+    protected $allowedFields = ['id', 'nama', 'alamat', 'jabatan', 'foto', 'periode'];
 
     public function getId($id = false)
     {
@@ -28,6 +28,15 @@ class AnggotaModel extends Model
         // $builder = $this->select(*);
         // $builder = $this->select('anggota.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
         $builder->join('periode', 'periode.periode_id = anggota.periode');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getPeriode2017($slug = false)
+    {
+        $builder = $this->db->table('anggota');
+        $builder->join('periode', 'periode.periode_id = anggota.periode');
+        $builder->where('anggota.periode', 1);
+        // $builder->where('anggota.periode', 8);
         $query = $builder->get();
         return $query->getResultArray();
     }

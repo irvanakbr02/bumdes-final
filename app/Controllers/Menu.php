@@ -40,6 +40,38 @@ class Menu extends BaseController
         // $data['menu'] = $query->getResultArray();
         return view('admin/halaman/menu/index', $data);
     }
+    public function wisata()
+    {
+        $data = [
+            'title' => 'Menu Wisata',
+            'menu' => $this->menu->getWisata()
+        ];
+        return view('user/menu/index', $data);
+    }
+    public function kuliner()
+    {
+        $data = [
+            'title' => 'Menu Kuliner',
+            'menu' => $this->menu->getKuliner()
+        ];
+        return view('user/menu/index', $data);
+    }
+    public function kesenian()
+    {
+        $data = [
+            'title' => 'Menu Kesenian',
+            'menu' => $this->menu->getKenian()
+        ];
+        return view('user/menu/index', $data);
+    }
+    public function budaya()
+    {
+        $data = [
+            'title' => 'Menu Budaya',
+            'menu' => $this->menu->getBudaya()
+        ];
+        return view('user/menu/index', $data);
+    }
     public function kategori()
     {
         $data = [
@@ -122,7 +154,7 @@ class Menu extends BaseController
     public function detail($slug)
     {
         $data = [
-            'title' => 'Detail ',
+            'title' => 'Detail Menu',
         ];
 
         $this->builder->select('menu.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');

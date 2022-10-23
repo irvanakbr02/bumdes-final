@@ -33,4 +33,37 @@ class MenuModel extends Model
         $query = $builder->get();
         return $query->getResultArray();
     }
+    public function getWisata($slug = false)
+    {
+        // $builder = $this->db->table('menu');
+        $builder = $this->select('menu.id as menuid, slug, nama, deskripsi, foto, kategori.kategori_nama as kategori');
+        $builder->join('kategori', 'kategori.kategori_id = menu.kategori');
+        $builder->where('kategori', 1);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getKuliner($slug = false)
+    {
+        $builder = $this->db->table('menu');
+        $builder->join('kategori', 'kategori.kategori_id = menu.kategori');
+        $builder->where('kategori', 3);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getKenian($slug = false)
+    {
+        $builder = $this->db->table('menu');
+        $builder->join('kategori', 'kategori.kategori_id = menu.kategori');
+        $builder->where('kategori', 2);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    public function getBudaya($slug = false)
+    {
+        $builder = $this->db->table('menu');
+        $builder->join('kategori', 'kategori.kategori_id = menu.kategori');
+        $builder->where('kategori', 4);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
 }

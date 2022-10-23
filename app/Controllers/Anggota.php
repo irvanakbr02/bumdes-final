@@ -36,6 +36,42 @@ class Anggota extends BaseController
         // $data['anggota'] = $query->getResultArray();
         return view('admin/halaman/anggota/index', $data);
     }
+    public function anggota2017()
+    {
+        $data = [
+            'title' => 'Anggota Bumdesa',
+            'periode' => $this->periode->findAll(),
+            'anggota' => $this->anggota->getAll()
+        ];
+        return view('user/anggota/biodata', $data);
+    }
+    public function struktur()
+    {
+        $data = [
+            'title' => 'Struktur Keanggotaan Bumdesa',
+            'periode' => $this->periode->findAll(),
+            'anggota' => $this->anggota->getAll()
+        ];
+        return view('user/anggota/struktur', $data);
+    }
+    public function unitusaha()
+    {
+        $data = [
+            'title' => 'Unit Usaha Bumdesa',
+            'periode' => $this->periode->findAll(),
+            'anggota' => $this->anggota->getAll()
+        ];
+        return view('halaman/unitusaha', $data);
+    }
+    public function regulasi()
+    {
+        $data = [
+            'title' => 'Regulasi Bumdesa',
+            'periode' => $this->periode->findAll(),
+            'anggota' => $this->anggota->getAll()
+        ];
+        return view('halaman/regulasi', $data);
+    }
     public function periode()
     {
         $data = [
@@ -105,6 +141,7 @@ class Anggota extends BaseController
         $this->anggota->save([
             'nama' => $this->request->getVar('nama'),
             'periode' => $this->request->getVar('periode'),
+            'jabatan' => $this->request->getVar('jabatan'),
             'alamat' => $this->request->getVar('alamat'),
             'foto' => $namaFoto
         ]);
@@ -199,6 +236,7 @@ class Anggota extends BaseController
             'id' => $id,
             'nama' => $this->request->getVar('nama'),
             'alamat' => $this->request->getVar('alamat'),
+            'jabatan' => $this->request->getVar('jabatan'),
             'periode' => $this->request->getVar('periode'),
             'foto' => $namaFoto
         ]);

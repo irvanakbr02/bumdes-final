@@ -17,6 +17,7 @@
                 <th scope="col" width="20%">Foto</th>
                 <th scope="col" width="20%">Nama</th>
                 <th scope="col" width="20%">Periode</th>
+                <th scope="col" width="20%">Jabatan</th>
                 <th scope="col" width="20%">Alamat</th>
                 <th scope="col" width="20%">Aksi</th>
             </tr>
@@ -28,6 +29,7 @@
                     <td><img src="/img/pengurus/<?= $anggota['foto']; ?>" alt="" class="" width="300px" height="250px"></td>
                     <td><?= $anggota['nama']; ?></td>
                     <td><?= $anggota['periode']; ?></td>
+                    <td><?= $anggota['jabatan']; ?></td>
                     <td><?php echo substr($anggota['alamat'], 0, 100) . "..";  ?></td>
                     <td>
                         <a href="/admin/profil/anggota/edit/<?= $anggota['id']; ?>" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i> Edit</a>

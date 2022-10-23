@@ -19,7 +19,7 @@ class Visi extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Menu Kategori',
+            'title' => 'Visi Misi',
             'visi' => $this->visi->getAll()
         ];
 
@@ -34,7 +34,15 @@ class Visi extends BaseController
         // $data['visi'] = $query->getResultArray();
         return view('admin/halaman/visi/index', $data);
     }
-
+    public function visi2017()
+    {
+        $data = [
+            'title' => 'Visi Misi Bumdesa',
+            'periode' => $this->periode->findAll(),
+            'visi' => $this->visi->getPeriode2017()
+        ];
+        return view('user/visi/index', $data);
+    }
     public function create()
     {
         $data = [
