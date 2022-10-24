@@ -30,9 +30,9 @@
 
         </div>
         <div class="form-group row">
-            <label for="foto" class="col-sm-2 col-form-label">Isi Berita</label>
+            <label for="deskripsi" class="col-sm-2 col-form-label">Isi</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : '' ?>" id="deskripsi" name="deskripsi">
+                <textarea class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : '' ?>" name="deskripsi" id="deskripsi" cols="80" rows="50"></textarea>
                 <div class="invalid-feedback">
                     <?= $validation->getError('deskripsi'); ?>
                 </div>

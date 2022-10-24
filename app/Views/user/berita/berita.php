@@ -25,7 +25,7 @@
             </p>
         </div>
     <?php endforeach; ?>
-
+    <?= $pager->links('berita', 'pagination'); ?>
 </div>
 
 <?= $this->endSection(); ?>

@@ -16,9 +16,9 @@ class Pesan extends BaseController
     {
         $data = [
             'title' => 'Admin Artikel Bumdesa | Website Bumdes',
-            'pesan' => $this->model->getPesan()
-            // 'model' => $this->model->paginate(5, 'model'),
-            // 'pager' => $this->model->pager
+            // 'pesan' => $this->model->getPesan()
+            'pesan' => $this->model->paginate(8, 'model'),
+            'pager' => $this->model->pager
         ];
         return view('admin/halaman/pesan/index', $data);
     }

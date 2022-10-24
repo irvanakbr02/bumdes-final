@@ -31,7 +31,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <?= $pager->links('laporan', 'default_full'); ?>
+        <?= $pager->links('laporan', 'pagination'); ?>
     </div>
 </div>
 

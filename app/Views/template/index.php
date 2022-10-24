@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/owl-carousel-2/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/owl-carousel-2/owl.theme.default.min.css">
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -77,6 +79,19 @@
     <!-- Custom js for this page -->
     <script src="<?= base_url(); ?>/js/dashboard.js"></script>
     <!-- End custom js for this page -->
+    <style>
+        .ck-editor__editable_inline {
+            min-height: 300px;
+            color: black;
+        }
+    </style>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#deskripsi'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 </body>
 
 </html>

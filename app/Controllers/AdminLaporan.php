@@ -17,9 +17,9 @@ class AdminLaporan extends BaseController
     {
         $data = [
             'title' => 'Laporan Admin | Website Bumdes',
-            'laporan' => $this->laporan->getLaporan()
-            // 'laporan' => $this->laporan->paginate(5, 'laporan'),
-            // 'pager' => $this->laporan->pager
+            // 'laporan' => $this->laporan->getLaporan()
+            'laporan' => $this->laporan->paginate(8, 'laporan'),
+            'pager' => $this->laporan->pager
         ];
 
         return view('/admin/halaman/laporan/index', $data);

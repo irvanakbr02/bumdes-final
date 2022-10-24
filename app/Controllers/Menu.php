@@ -26,7 +26,9 @@ class Menu extends BaseController
     {
         $data = [
             'title' => 'Menu Kategori',
-            'menu' => $this->menu->getAll()
+            'menu' => $this->menu->getAll(),
+            // 'menu' => $this->menu->paginate(8),
+            // 'pager' => $this->menu->pager
         ];
 
         // $users = new UserModel();

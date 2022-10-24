@@ -42,6 +42,8 @@
         </tbody>
 
     </table>
+    <?= $pager->links('berita', 'pagination'); ?>
+
     <div>
         <a class="btn btn-info mt-4" href="/admin/laporan/create">Tambah Data Laporan</a>
     </div>

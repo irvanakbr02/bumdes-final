@@ -16,9 +16,9 @@ class AdminBerita extends BaseController
         // $berita = $this->berita->findAll();
         $data = [
             'title' => 'Admin Artikel Bumdesa | Website Bumdes',
-            'berita' => $this->berita->getBerita()
-            // 'berita' => $this->berita->paginate(5, 'berita'),
-            // 'pager' => $this->berita->pager
+            // 'berita' => $this->berita->getBerita()
+            'berita' => $this->berita->paginate(8, 'berita'),
+            'pager' => $this->berita->pager
         ];
 
 

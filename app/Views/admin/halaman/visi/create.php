@@ -6,9 +6,9 @@
     </h1>
     <form action="/admin/profil/visi/save" method="POST" enctype="multipart/form-data">
         <div class="form-group row">
-            <label for="visi" class="col-sm-2 col-form-label">Visi dan Misi</label>
+            <label for="visi" class="col-sm-2 col-form-label">Visi</label>
             <div class="col-sm-10">
-                <textarea class="form-control <?= ($validation->hasError('visi')) ? 'is-invalid' : '' ?>" name="visi" id="visi" cols="80" rows="50"></textarea>
+                <textarea class="form-control <?= ($validation->hasError('visi')) ? 'is-invalid' : '' ?>" name="visi" id="deskripsi" cols="80" rows="50"></textarea>
                 <div class="invalid-feedback">
                     <?= $validation->getError('visi'); ?>
                 </div>
