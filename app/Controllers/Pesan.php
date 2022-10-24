@@ -20,7 +20,7 @@ class Pesan extends BaseController
             // 'model' => $this->model->paginate(5, 'model'),
             // 'pager' => $this->model->pager
         ];
-        return view('halaman/pesan', $data);
+        return view('admin/halaman/pesan/index', $data);
     }
     public function pesan()
     {
