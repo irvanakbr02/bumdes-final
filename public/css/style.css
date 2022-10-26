@@ -14383,6 +14383,10 @@ ul li:hover .dropdown-item {
   text-decoration : none;
   color: #ffffff;
 }
+
+.fotomenu{
+  width: 700px;
+}
 /* end */
 
 .dropdown-item {

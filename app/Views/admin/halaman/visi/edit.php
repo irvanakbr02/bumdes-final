@@ -5,15 +5,16 @@
         Ubah Visi Misi
     </h1>
     <form action="/admin/profil/visi/update/<?= $visi['id']; ?>" method="POST" enctype="multipart/form-data">
+
         <div class="form-group row">
-            <?= csrf_field(); ?>
-            <label for="nama" class="col-sm-2 col-form-label">Visi</label>
+            <label for="visi" class="col-sm-2 col-form-label">Visi</label>
             <div class="col-sm-10">
-                <textarea name="visi" id="visi" class="form-control <?= ($validation->hasError('visi')) ? 'is-invalid' : '' ?>" autofocus>
+                <textarea class="form-control <?= ($validation->hasError('visi')) ? 'is-invalid' : '' ?>" name="visi" id="deskripsi" cols="80" rows="50">
                 <?= $visi['visi']; ?>
-                </textarea>
+
+            </textarea>
                 <div class="invalid-feedback">
-                    <?= $validation->getError('nama'); ?>
+                    <?= $validation->getError('visi'); ?>
                 </div>
             </div>
         </div>

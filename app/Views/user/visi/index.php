@@ -2,7 +2,7 @@
 <?= $this->section('page-content'); ?>
 
 <div class="row">
-    <h5 class="card-title">Visi Misi Bumdesa Tambaknegara</h5>
+    <h1 class="card-title">Visi Misi Bumdesa Tambaknegara</h1>
 
     <?php foreach ($visi as $visi) : ?>
 
