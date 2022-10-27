@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\PeriodeModel;
+use App\Models\StatusModel;
 use App\Models\VisiModel;
 
 class Visi extends BaseController
@@ -14,6 +15,7 @@ class Visi extends BaseController
         $this->db      = \Config\Database::connect();
         $this->builder = $this->db->table('visimisi');
         $this->periode = new PeriodeModel();
+        $this->status = new StatusModel();
         $this->visi = new VisiModel();
     }
     public function index()
@@ -39,7 +41,8 @@ class Visi extends BaseController
         $data = [
             'title' => 'Visi Misi Bumdesa',
             'periode' => $this->periode->findAll(),
-            'visi' => $this->visi->getPeriode2017()
+            'status' => $this->status->findAll(),
+            'visi' => $this->visi->getAktif()
         ];
         return view('user/visi/index', $data);
     }
@@ -47,6 +50,7 @@ class Visi extends BaseController
     {
         $data = [
             'periode' => $this->periode->findAll(),
+            'status' => $this->status->findAll(),
             'validation' => \Config\Services::validation()
         ];
 
@@ -73,6 +77,7 @@ class Visi extends BaseController
         $this->visi->save([
             'periode' => $this->request->getVar('periode'),
             'visi' => $this->request->getVar('visi'),
+            'status' => $this->request->getVar('status'),
         ]);
         // $data = $this->request->getPost();
         // $this->visi->save($data);
@@ -87,8 +92,9 @@ class Visi extends BaseController
             'title' => 'Detail ',
         ];
 
-        $this->builder->select('visi.id as menuid, slug, nama, deskripsi, foto, periode.kategori_nama as periode');
+        $this->builder->select('visi.id as menuid, slug, nama, deskripsi, foto, periode.periode as periode, status.status as status');
         $this->builder->join('periode', 'periode.kategori_id = visi.periode');
+        $this->builder->join('status', 'status.status_id = visi.status');
         $this->builder->where('slug', $slug);
         $query = $this->builder->get();
 
@@ -107,6 +113,7 @@ class Visi extends BaseController
     {
         $data = [
             'title' => 'Form Ubah data menu',
+            'status' => $this->status->findAll(),
             'periode' => $this->periode->findAll(),
             'validation' => \Config\Services::validation(),
             'visi' => $this->visi->getId($id),

@@ -21,7 +21,7 @@
         <div class="form-group row">
             <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
             <div class="col-sm-10">
-                <textarea class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : '' ?>" name="alamat" id="alamat" cols="80" rows="50"></textarea>
+                <textarea class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : '' ?>" name="alamat" id="deskripsi" cols="80" rows="50"></textarea>
                 <div class="invalid-feedback">
                     <?= $validation->getError('alamat'); ?>
                 </div>
@@ -45,6 +45,18 @@
                     <option value="" hidden></option>
                     <?php foreach ($periode as $key => $value) : ?>
                         <option value="<?= $value['periode_id'] ?>"><?= $value['periode'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label for="status" class="col-sm-2 col-form-label">Status</label>
+            <div class="col-sm-10">
+                <select name="status" class="form-control" id="status" required>
+                    <option value="" hidden></option>
+                    <?php foreach ($status as $key => $value) : ?>
+                        <option value="<?= $value['status_id'] ?>"><?= $value['status'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

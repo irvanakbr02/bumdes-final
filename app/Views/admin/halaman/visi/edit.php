@@ -19,13 +19,26 @@
             </div>
         </div>
         <div class="form-group row">
-            <label for="periode" class="col-sm-2 col-form-label">Kategori</label>
+            <label for="periode" class="col-sm-2 col-form-label">Periode</label>
             <div class="col-sm-10">
                 <select name="periode" class="form-control" id="periode" required>
                     <option value="" hidden></option>
                     <?php foreach ($periode as $key => $value) : ?>
                         <option value="<?= $value['periode_id'] ?>" <?= $visi['periode'] == $value['periode_id'] ? 'selected' : null  ?>>
                             <?= $value['periode'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="status" class="col-sm-2 col-form-label">Status</label>
+            <div class="col-sm-10">
+                <select name="status" class="form-control" id="status" required>
+                    <option value="" hidden></option>
+                    <?php foreach ($status as $key => $value) : ?>
+                        <option value="<?= $value['status_id'] ?>" <?= $visi['status'] == $value['status_id'] ? 'selected' : null  ?>>
+                            <?= $value['status'] ?>
                         </option>
                     <?php endforeach; ?>
                 </select>

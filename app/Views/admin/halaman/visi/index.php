@@ -24,6 +24,7 @@
                 foreach ($visi as $visi) : ?>
                     <tr>
                         <td><?php echo substr($visi['visi'], 0, 120) . "..";  ?></td>
+                        <!-- <td><?= $visi['visi']; ?></td> -->
                         <td><?= $visi['periode']; ?></td>
                         <td>
                             <a href="/admin/profil/visi/edit/<?= $visi['id']; ?>" class="btn btn-success"><i class="fa-solid fa-pen-to-square"></i> Edit</a>

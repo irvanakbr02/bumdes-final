@@ -6,6 +6,7 @@ use App\Models\AnggotaModel;
 use App\Models\KategoriModel;
 use App\Models\MenuModel;
 use App\Models\PeriodeModel;
+use App\Models\StatusModel;
 
 class Anggota extends BaseController
 {
@@ -16,6 +17,7 @@ class Anggota extends BaseController
         $this->db      = \Config\Database::connect();
         $this->builder = $this->db->table('anggota');
         $this->periode = new PeriodeModel();
+        $this->status = new StatusModel();
         $this->anggota = new AnggotaModel();
     }
     public function index()
@@ -41,6 +43,7 @@ class Anggota extends BaseController
         $data = [
             'title' => 'Anggota Bumdesa',
             'periode' => $this->periode->findAll(),
+            'status' => $this->status->findAll(),
             'anggota' => $this->anggota->getAll()
         ];
         return view('user/anggota/biodata', $data);
@@ -50,7 +53,8 @@ class Anggota extends BaseController
         $data = [
             'title' => 'Struktur Keanggotaan Bumdesa',
             'periode' => $this->periode->findAll(),
-            'anggota' => $this->anggota->getAll()
+            'status' => $this->status->findAll(),
+            'anggota' => $this->anggota->getPeriode2017()
         ];
         return view('user/anggota/struktur', $data);
     }
@@ -59,6 +63,7 @@ class Anggota extends BaseController
         $data = [
             'title' => 'Unit Usaha Bumdesa',
             'periode' => $this->periode->findAll(),
+            'status' => $this->status->findAll(),
             'anggota' => $this->anggota->getAll()
         ];
         return view('halaman/unitusaha', $data);
@@ -68,6 +73,7 @@ class Anggota extends BaseController
         $data = [
             'title' => 'Regulasi Bumdesa',
             'periode' => $this->periode->findAll(),
+            'status' => $this->status->findAll(),
             'anggota' => $this->anggota->getAll()
         ];
         return view('halaman/regulasi', $data);
@@ -76,7 +82,8 @@ class Anggota extends BaseController
     {
         $data = [
             'title' => 'Menu Kategori',
-            'periode' => $this->periode->findAll()
+            'periode' => $this->periode->findAll(),
+            'status' => $this->status->findAll(),
         ];
         return view('admin/halaman/periode/index', $data);
     }
@@ -84,6 +91,7 @@ class Anggota extends BaseController
     {
         $data = [
             'periode' => $this->periode->findAll(),
+            'status' => $this->status->findAll(),
             'validation' => \Config\Services::validation()
         ];
 
@@ -142,6 +150,7 @@ class Anggota extends BaseController
             'nama' => $this->request->getVar('nama'),
             'periode' => $this->request->getVar('periode'),
             'jabatan' => $this->request->getVar('jabatan'),
+            'status' => $this->request->getVar('status'),
             'alamat' => $this->request->getVar('alamat'),
             'foto' => $namaFoto
         ]);
@@ -180,6 +189,7 @@ class Anggota extends BaseController
             'title' => 'Form Ubah data anggota',
             'validation' => \Config\Services::validation(),
             'periode' => $this->periode->findAll(),
+            'status' => $this->status->findAll(),
             'anggota' => $this->anggota->getId($id)
         ];
         return view('admin/halaman/anggota/edit', $data);
@@ -237,6 +247,7 @@ class Anggota extends BaseController
             'nama' => $this->request->getVar('nama'),
             'alamat' => $this->request->getVar('alamat'),
             'jabatan' => $this->request->getVar('jabatan'),
+            'status' => $this->request->getVar('status'),
             'periode' => $this->request->getVar('periode'),
             'foto' => $namaFoto
         ]);
