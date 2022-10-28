@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/owl-carousel-2/owl.carousel.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/vendors/owl-carousel-2/owl.theme.default.min.css">
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script> -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -77,6 +77,8 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="<?= base_url(); ?>/js/dashboard.js"></script>
+    <script src="<?= base_url(); ?>/ckeditor5-build-classic/ckeditor.js"></script>
+
     <style>
         .ck-editor__editable_inline {
             min-height: 300px;
